@@ -2,7 +2,6 @@ from rest_framework.test import APITestCase
 from rest_framework.test import APIClient
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
-from task.models import Task
 
 
 class TaskCreationTests(APITestCase):
@@ -33,9 +32,7 @@ class TaskCreationTests(APITestCase):
                                    HTTP_AUTHORIZATION=self.token)
         self.assertEqual(response.status_code, 200)
 
-    def testcase_delete(self):
-        self.client.force_login(user=self.user)
-        response = self.client.delete('/api-auth/login/?next=/tasks/3', format='json', HTTP_AUTHORIZATION=self.token)
-        self.assertEqual(response.status_code, 200)
+
+
 
 
