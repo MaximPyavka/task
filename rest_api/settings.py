@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'task.apps.TaskConfig'
 ]
 
@@ -71,6 +72,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rest_api.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from task.permissions import IsOwnerOrReadOnly
 
+
 class TaskList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
     queryset = Task.objects.all()
@@ -18,9 +19,6 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-
-
-
 
 
 class UserList(generics.ListAPIView):
