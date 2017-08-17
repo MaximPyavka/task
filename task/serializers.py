@@ -17,7 +17,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Task.objects.all())
+    tasks = serializers.PrimaryKeyRelatedField(many=True, queryset=Task.objects.all())
 
     class Meta:
         model = User
